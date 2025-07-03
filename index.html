@@ -3,310 +3,1978 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Closers.TV | Elite Sales Talent Ecosystem</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>NexusTV | Future of Media</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00f0ff;
+            --secondary: #ff00e6;
+            --dark: #0a0a1a;
+            --light: #f0f0ff;
+            --accent: #7700ff;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 26, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 15px 5%;
+            background: rgba(10, 10, 26, 0.95);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 2.2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+        }
+
+        nav ul li a {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--gradient);
+            padding: 10px 25px;
+            border-radius: 30px;
+            color: var(--dark);
+            font-weight: 700;
+            margin-left: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 240, 255, 0.3);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 30%, rgba(0, 240, 255, 0.1), transparent 50%),
+                        radial-gradient(circle at 30% 70%, rgba(255, 0, 230, 0.1), transparent 50%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            width: 60%;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(to right, var(--light), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: textGlow 2s infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% {
+                text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+            }
+            100% {
+                text-shadow: 0 0 20px rgba(0, 240, 255, 0.7), 0 0 30px rgba(0, 240, 255, 0.4);
+            }
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 80%;
+            opacity: 0.9;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--dark);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 240, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 240, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .hero-video {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            height: 70%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            filter: blur(40px);
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            50% {
+                transform: translate(50px, 50px) rotate(180deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        /* About Section */
+        .section {
+            padding: 100px 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.8;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .about-features {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            transition: transform 0.3s ease, background 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-card i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .feature-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .about-media {
+            flex: 1;
+            position: relative;
+        }
+
+        .about-media img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            transition: transform 0.5s ease;
+        }
+
+        .about-media:hover img {
+            transform: scale(1.03);
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .play-btn i {
+            color: var(--dark);
+            font-size: 1.8rem;
+            margin-left: 5px;
+        }
+
+        .play-btn:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+        }
+
+        /* Services Section */
+        .services {
+            background: radial-gradient(circle at center, rgba(119, 0, 255, 0.1), transparent 70%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.1), transparent 70%);
+            transform: scale(0);
+            transition: transform 0.5s ease;
+            pointer-events: none;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card:hover::before {
+            transform: scale(1);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .service-card .btn {
+            padding: 10px 25px;
+            font-size: 0.8rem;
+        }
+
+        /* Portfolio Section */
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--light);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--gradient);
+            color: var(--dark);
+            border-color: transparent;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 250px;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .portfolio-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: radial-gradient(circle at center, rgba(255, 0, 230, 0.1), transparent 70%);
+        }
+
+        .testimonials-slider {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-slide {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 0 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border: 3px solid var(--primary);
+        }
+
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .testimonial-quote::before,
+        .testimonial-quote::after {
+            content: '"';
+            font-size: 2rem;
+            color: var(--primary);
+            opacity: 0.5;
+            position: absolute;
+        }
+
+        .testimonial-quote::before {
+            top: -20px;
+            left: -20px;
+        }
+
+        .testimonial-quote::after {
+            bottom: -30px;
+            right: -20px;
+        }
+
+        .testimonial-author {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .slick-prev, .slick-next {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .slick-prev:hover, .slick-next:hover {
+            background: var(--gradient);
+        }
+
+        .slick-prev::before, .slick-next::before {
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--light);
+            font-size: 1.2rem;
+        }
+
+        .slick-prev::before {
+            content: '\f053';
+        }
+
+        .slick-next::before {
+            content: '\f054';
+        }
+
+        .slick-prev {
+            left: -70px;
+        }
+
+        .slick-next {
+            right: -70px;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .member-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+        }
+
+        .member-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .member-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .member-info p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 15px;
+        }
+
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .member-social a {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .member-social a:hover {
+            background: var(--gradient);
+            transform: translateY(-3px);
+        }
+
+        .member-social a i {
+            font-size: 0.9rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(255, 0, 230, 0.1));
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            padding: 30px;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .stat-title {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .contact-info p {
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .contact-details {
+            margin-bottom: 40px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-detail i {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 240, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .contact-detail h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .contact-detail p {
+            margin: 0;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .contact-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .contact-social a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-social a:hover {
+            background: var(--gradient);
+            transform: translateY(-3px);
+        }
+
+        .contact-social a i {
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: var(--light);
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(0, 240, 255, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--gradient);
+            border: none;
+            border-radius: 10px;
+            color: var(--dark);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 240, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to bottom, rgba(10, 10, 26, 0.9), var(--dark));
+            padding: 80px 5% 30px;
+            position: relative;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--gradient);
+        }
+
+        .footer-col p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            display: block;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .footer-newsletter p {
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px 0 0 30px;
+            color: var(--light);
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .newsletter-btn {
+            padding: 0 25px;
+            background: var(--gradient);
+            border: none;
+            border-radius: 0 30px 30px 0;
+            color: var(--dark);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background: linear-gradient(135deg, #00d0ff, #ff00cc);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--dark);
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 240, 255, 0.3);
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--dark);
+            border-radius: 20px;
+            width: 80%;
+            max-width: 900px;
+            padding: 30px;
+            position: relative;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: var(--gradient);
+            color: var(--dark);
+        }
+
+        .modal-video {
+            width: 100%;
+            height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .modal-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .modal p {
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .hero-content {
+                width: 55%;
+            }
+            
+            .hero-video {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                padding-top: 100px;
+            }
+            
+            .hero-content {
+                width: 100%;
+                margin-bottom: 50px;
+            }
+            
+            .hero p {
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero-btns {
+                justify-content: center;
+            }
+            
+            .hero-video {
+                position: relative;
+                width: 80%;
+                height: 400px;
+                transform: none;
+                margin: 0 auto;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .slick-prev {
+                left: -30px;
+            }
+            
+            .slick-next {
+                right: -30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 5%;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--dark);
+                padding: 20px 5%;
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                z-index: 999;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0 0 15px 0;
+            }
+            
+            .nav-cta {
+                margin: 20px 0 0 0;
+                display: inline-block;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section {
+                padding: 80px 5%;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .modal-content {
+                width: 95%;
+                padding: 20px;
+            }
+            
+            .modal-video {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .hero-video {
+                width: 100%;
+                height: 300px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-btn {
+                border-radius: 30px;
+                padding: 12px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+
+        /* Particle Animation */
+        @keyframes particle-animation {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            display: block;
+            background: rgba(255, 255, 255, 0.1);
+            animation: particle-animation 15s linear infinite;
+        }
+
+        /* Glitch Effect */
+        .glitch {
+            position: relative;
+        }
+
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark);
+        }
+
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 #ff00e6;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 #00f0ff;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% {
+                clip: rect(31px, 9999px, 94px, 0);
+            }
+            10% {
+                clip: rect(112px, 9999px, 76px, 0);
+            }
+            20% {
+                clip: rect(85px, 9999px, 77px, 0);
+            }
+            30% {
+                clip: rect(27px, 9999px, 97px, 0);
+            }
+            40% {
+                clip: rect(64px, 9999px, 98px, 0);
+            }
+            50% {
+                clip: rect(61px, 9999px, 85px, 0);
+            }
+            60% {
+                clip: rect(99px, 9999px, 114px, 0);
+            }
+            70% {
+                clip: rect(34px, 9999px, 115px, 0);
+            }
+            80% {
+                clip: rect(98px, 9999px, 129px, 0);
+            }
+            90% {
+                clip: rect(43px, 9999px, 96px, 0);
+            }
+            100% {
+                clip: rect(82px, 9999px, 64px, 0);
+            }
+        }
+
+        @keyframes glitch-anim2 {
+            0% {
+                clip: rect(65px, 9999px, 119px, 0);
+            }
+            10% {
+                clip: rect(120px, 9999px, 58px, 0);
+            }
+            20% {
+                clip: rect(85px, 9999px, 133px, 0);
+            }
+            30% {
+                clip: rect(91px, 9999px, 145px, 0);
+            }
+            40% {
+                clip: rect(16px, 9999px, 118px, 0);
+            }
+            50% {
+                clip: rect(64px, 9999px, 32px, 0);
+            }
+            60% {
+                clip: rect(90px, 9999px, 83px, 0);
+            }
+            70% {
+                clip: rect(92px, 9999px, 100px, 0);
+            }
+            80% {
+                clip: rect(23px, 9999px, 59px, 0);
+            }
+            90% {
+                clip: rect(19px, 9999px, 75px, 0);
+            }
+            100% {
+                clip: rect(117px, 9999px, 61px, 0);
+            }
+        }
+
+        /* Hover Effects */
+        .hover-glow {
+            transition: box-shadow 0.3s ease;
+        }
+
+        .hover-glow:hover {
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-spinner {
+            width: 80px;
+            height: 80px;
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loader-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #00d0ff, #ff00cc);
+        }
+    </style>
 </head>
 <body>
-    <!-- Floating Particles -->
-    <div class="particles" id="particles"></div>
+    <!-- Loading Screen -->
+    <div class="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">NEXUS TV</div>
+        </div>
+    </div>
 
     <!-- Header -->
     <header id="header">
         <a href="#" class="logo">
-            <div class="logo-icon">
-                <i class="fas fa-tv"></i>
-            </div>
-            Closers<span>.TV</span>
+            <i class="fas fa-satellite-dish"></i>
+            <span>NexusTV</span>
         </a>
+        
+        <div class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </div>
+        
         <nav id="nav">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Functions</a></li>
-                <li><a href="#">Ecosystem</a></li>
-                <li><a href="#">Showcases</a></li>
-                <li><a href="#">Community</a></li>
-                <li><a href="#" class="secondary-button">Join Now</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="nav-cta">Get Started</a></li>
             </ul>
         </nav>
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="grid-bg"></div>
-        <video class="hero-video" autoplay muted loop>
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-network-of-lines-connecting-glowing-dots-3632-large.mp4" type="video/mp4">
-        </video>
-        <div class="hero-content">
-            <h1>Shaping the Future of Sales Talent</h1>
-            <p>We revolutionize sales talent acquisition, training, and deployment at scale. Empowering companies to accelerate revenue and forge strategic partnerships through our elite ecosystem.</p>
-            <div class="hero-buttons">
-                <a href="#" class="cta-button">Get Started</a>
-                <a href="#" class="secondary-button">Watch Demo</a>
+    <section class="hero" id="home">
+        <div class="floating-elements">
+            <div class="floating-element" style="width: 300px; height: 300px; top: 10%; left: 10%; background: rgba(0, 240, 255, 0.1);"></div>
+            <div class="floating-element" style="width: 200px; height: 200px; top: 70%; left: 80%; background: rgba(255, 0, 230, 0.1);"></div>
+            <div class="floating-element" style="width: 150px; height: 150px; top: 30%; left: 60%; background: rgba(119, 0, 255, 0.1);"></div>
+        </div>
+        
+        <div class="hero-content fade-in">
+            <h1 class="glitch" data-text="The Future of Television">The Future of Television</h1>
+            <p>Revolutionizing media production with cutting-edge AI technology and immersive storytelling experiences that captivate audiences worldwide.</p>
+            <div class="hero-btns">
+                <a href="#services" class="btn btn-primary fade-in delay-1">Explore Services</a>
+                <a href="#" class="btn btn-secondary fade-in delay-2">Watch Demo</a>
             </div>
         </div>
         
+        <div class="hero-video fade-in delay-3">
+            <video autoplay loop muted playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-digital-grid-with-lines-15894-large.mp4" type="video/mp4">
+            </video>
+        </div>
     </section>
 
-    <!-- Mission Section -->
-    <section class="mission">
-        <div class="section-header">
-            <h2>Our Mission & Vision</h2>
-            <p>We're building the world's largest, most efficient, and highest-quality sales talent ecosystem to connect top performers with organizations globally.</p>
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="section-title fade-in">
+            <h2>About NexusTV</h2>
+            <p>We're redefining the boundaries of television production with innovative technology and creative storytelling.</p>
         </div>
-        <div class="mission-content">
-            <div class="mission-text">
-                <h3>Revolutionizing Sales Talent</h3>
-                <p>At Closers.TV, we're transforming how companies acquire, train, and deploy sales talent. Our platform combines cutting-edge technology with proven methodologies to create a scalable solution for sales excellence.</p>
-                <p>We source, vet, and activate tens of thousands of elite closers monthly—empowering organizations to scale faster and achieve measurable results.</p>
-                <a href="#" class="cta-button">Learn More</a>
+        
+        <div class="about-content">
+            <div class="about-text fade-in">
+                <h3>Pioneering the Next Generation of Media</h3>
+                <p>Founded in 2018, NexusTV has quickly established itself as a leader in AI-driven media production. Our team of visionaries combines technical expertise with artistic flair to deliver groundbreaking content.</p>
+                <p>We specialize in creating immersive experiences that blend traditional storytelling with cutting-edge technology, offering viewers something truly unique in today's media landscape.</p>
+                
+                <div class="about-features">
+                    <div class="feature-card fade-in delay-1">
+                        <i class="fas fa-brain"></i>
+                        <h4>AI-Powered Production</h4>
+                        <p>Our proprietary AI systems enhance every aspect of production from scripting to post-processing.</p>
+                    </div>
+                    <div class="feature-card fade-in delay-2">
+                        <i class="fas fa-vr-cardboard"></i>
+                        <h4>Immersive Experiences</h4>
+                        <p>Creating content that goes beyond the screen with VR and AR integrations.</p>
+                    </div>
+                    <div class="feature-card fade-in delay-3">
+                        <i class="fas fa-globe"></i>
+                        <h4>Global Reach</h4>
+                        <p>Our content is distributed to over 150 countries with localized adaptations.</p>
+                    </div>
+                    <div class="feature-card fade-in delay-4">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Data-Driven Insights</h4>
+                        <p>Real-time analytics shape our content strategy for maximum engagement.</p>
+                    </div>
+                </div>
             </div>
-            <div class="mission-video">
-                <video poster="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-businessman-analyzing-data-while-sitting-at-the-desk-15845-large.mp4" type="video/mp4">
-                </video>
-                <div class="play-button">
+            
+            <div class="about-media fade-in delay-2">
+                <img src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="NexusTV Production Studio">
+                <div class="play-btn" id="aboutVideoBtn">
                     <i class="fas fa-play"></i>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Core Functions Section -->
-    <section class="functions">
-        <div class="section-header">
-            <h2>Our Core Functions</h2>
-            <p>From sourcing top talent to closing deals on our stage, each division works in harmony to build a scalable, high-impact sales mastery platform.</p>
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="section-title fade-in">
+            <h2>Our Services</h2>
+            <p>Comprehensive solutions for every stage of media production and distribution.</p>
         </div>
-        <div class="functions-grid">
-            <div class="function-card">
-                <div class="function-icon">
-                    <i class="fas fa-search"></i>
-                </div>
-                <h3>Talent Acquisition</h3>
-                <p>AI-driven assessments and strategic partnerships to identify and onboard high-potential salespeople across regions and industries.</p>
-                <a href="#" class="function-link">Explore <i class="fas fa-arrow-right"></i></a>
+        
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <i class="fas fa-film"></i>
+                <h3>AI Video Production</h3>
+                <p>Automated video creation with our advanced AI systems that understand narrative structure and visual aesthetics.</p>
+                <a href="#" class="btn btn-secondary">Learn More</a>
             </div>
-            <div class="function-card">
-                <div class="function-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <h3>Sales Training</h3>
-                <p>Immersive curriculum with live webinars, microlearning modules, and certifications in proven frameworks like Challenger and SPIN.</p>
-                <a href="#" class="function-link">Explore <i class="fas fa-arrow-right"></i></a>
+            
+            <div class="service-card fade-in delay-1">
+                <i class="fas fa-robot"></i>
+                <h3>Content Generation</h3>
+                <p>AI-powered content creation that adapts to audience preferences and trending topics in real-time.</p>
+                <a href="#" class="btn btn-secondary">Learn More</a>
             </div>
-            <div class="function-card">
-                <div class="function-icon">
-                    <i class="fas fa-rocket"></i>
-                </div>
-                <h3>Onboarding</h3>
-                <p>Seamless integration into client campaigns with customized onboarding, real-time dashboards, and strategic deployment.</p>
-                <a href="#" class="function-link">Explore <i class="fas fa-arrow-right"></i></a>
+            
+            <div class="service-card fade-in delay-2">
+                <i class="fas fa-vr-cardboard"></i>
+                <h3>Immersive Media</h3>
+                <p>Virtual and augmented reality experiences that transport viewers into the story like never before.</p>
+                <a href="#" class="btn btn-secondary">Learn More</a>
             </div>
-            <div class="function-card">
-                <div class="function-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <h3>Performance</h3>
-                <p>Ongoing coaching, incentives, and feedback with leaderboards, bonuses, and mentorship programs to keep performance high.</p>
-                <a href="#" class="function-link">Explore <i class="fas fa-arrow-right"></i></a>
+            
+            <div class="service-card fade-in delay-3">
+                <i class="fas fa-chart-pie"></i>
+                <h3>Audience Analytics</h3>
+                <p>Deep insights into viewer behavior and preferences to optimize content strategy and maximize engagement.</p>
+                <a href="#" class="btn btn-secondary">Learn More</a>
             </div>
-            <div class="function-card">
-                <div class="function-icon">
-                    <i class="fas fa-cogs"></i>
-                </div>
-                <h3>Technology</h3>
-                <p>Automation, AI analytics, CRM integrations, and scalable cloud architecture for data-driven talent management at scale.</p>
-                <a href="#" class="function-link">Explore <i class="fas fa-arrow-right"></i></a>
+            
+            <div class="service-card fade-in">
+                <i class="fas fa-satellite"></i>
+                <h3>Global Distribution</h3>
+                <p>Worldwide content delivery network with automatic localization and regional adaptation.</p>
+                <a href="#" class="btn btn-secondary">Learn More</a>
             </div>
-            <div class="function-card">
-                <div class="function-icon">
-                    <i class="fas fa-handshake"></i>
-                </div>
-                <h3>Partnerships</h3>
-                <p>Dedicated teams develop strategic alliances, customized solutions, and ongoing client feedback for mutual growth.</p>
-                <a href="#" class="function-link">Explore <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Ecosystem Section -->
-    <section class="ecosystem">
-        <div class="section-header">
-            <h2>The Closers.TV Ecosystem</h2>
-            <p>Our complete platform connects all aspects of sales talent development and deployment into one powerful system.</p>
-        </div>
-        <div class="ecosystem-diagram">
-            <div class="ecosystem-center">Closers.TV Platform</div>
-            <div class="ecosystem-node">
+            
+            <div class="service-card fade-in delay-1">
                 <i class="fas fa-graduation-cap"></i>
-                <h4>Elite Sales Academy</h4>
-                <p>Training & Certification</p>
-            </div>
-            <div class="ecosystem-node">
-                <i class="fas fa-book"></i>
-                <h4>Literature Division</h4>
-                <p>Content & Resources</p>
-            </div>
-            <div class="ecosystem-node">
-                <i class="fas fa-tv"></i>
-                <h4>Televised Showcases</h4>
-                <p>Live Demonstrations</p>
-            </div>
-            <div class="ecosystem-node">
-                <i class="fas fa-users"></i>
-                <h4>Community</h4>
-                <p>Mentorship & Feedback</p>
-            </div>
-            <svg class="ecosystem-connector" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path d="M100,20 A80,80 0 0,1 180,100 A80,80 0 0,1 100,180 A80,80 0 0,1 20,100 A80,80 0 0,1 100,20" />
-            </svg>
-        </div>
-    </section>
-
-    <!-- Events Section -->
-    <section class="events">
-        <div class="section-header">
-            <h2>Upcoming Events</h2>
-            <p>Join our live showcases, training sessions, and community events to experience the Closers.TV difference.</p>
-        </div>
-        <div class="events-container">
-            <div class="upcoming-event">
-                <div class="event-image">
-                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Global Summit">
-                    <div class="event-date">June 15, 2023</div>
-                </div>
-                <div class="event-content">
-                    <h3>Global Sales Summit</h3>
-                    <div class="event-meta">
-                        <span><i class="fas fa-map-marker-alt"></i> Virtual Event</span>
-                        <span><i class="fas fa-clock"></i> 10:00 AM EST</span>
-                    </div>
-                    <p>Join industry leaders and top performers for a day of insights, networking, and live deal-closing demonstrations.</p>
-                    <a href="#" class="secondary-button">Register Now</a>
-                </div>
-            </div>
-            <div class="upcoming-event">
-                <div class="event-image">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Training Bootcamp">
-                    <div class="event-date">June 22, 2023</div>
-                </div>
-                <div class="event-content">
-                    <h3>Closer Bootcamp</h3>
-                    <div class="event-meta">
-                        <span><i class="fas fa-map-marker-alt"></i> Regional Hubs</span>
-                        <span><i class="fas fa-clock"></i> 9:00 AM Local</span>
-                    </div>
-                    <p>Intensive 3-day training program covering Challenger, SPIN, and Straight Line methodologies with live role-plays.</p>
-                    <a href="#" class="secondary-button">Register Now</a>
-                </div>
-            </div>
-        </div>
-        <div class="countdown">
-            <h4>Next Event Starts In:</h4>
-            <div class="countdown-timer">
-                <div class="countdown-item">
-                    <div class="countdown-number" id="days">00</div>
-                    <div class="countdown-label">Days</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="hours">00</div>
-                    <div class="countdown-label">Hours</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="minutes">00</div>
-                    <div class="countdown-label">Minutes</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="seconds">00</div>
-                    <div class="countdown-label">Seconds</div>
-                </div>
+                <h3>Media Training</h3>
+                <p>Cutting-edge training programs for the next generation of AI-assisted media professionals.</p>
+                <a href="#" class="btn btn-secondary">Learn More</a>
             </div>
         </div>
     </section>
 
-    <!-- Community Section -->
-    <section class="community">
-        <div class="section-header">
-            <h2>Join Our Global Community</h2>
-            <p>Connect with top sales performers, mentors, and industry leaders in our vibrant, growth-focused community.</p>
+    <!-- Portfolio Section -->
+    <section class="section" id="portfolio">
+        <div class="section-title fade-in">
+            <h2>Our Portfolio</h2>
+            <p>Explore our groundbreaking projects that are shaping the future of television.</p>
         </div>
-        <div class="community-content">
-            <div class="community-text">
-                <h3>Where Elite Closers Connect</h3>
-                <p>The Closers.TV community is more than just a network—it's a movement. Share strategies, get feedback on your approach, and celebrate wins with peers who understand the art and science of closing.</p>
-                <div class="community-stats">
-                    <div class="community-stat">
-                        <div class="community-stat-number">15K+</div>
-                        <div class="community-stat-label">Active Members</div>
-                    </div>
-                    <div class="community-stat">
-                        <div class="community-stat-number">500+</div>
-                        <div class="community-stat-label">Mentors</div>
-                    </div>
-                    <div class="community-stat">
-                        <div class="community-stat-number">1.2M</div>
-                        <div class="community-stat-label">Monthly Interactions</div>
-                    </div>
-                    <div class="community-stat">
-                        <div class="community-stat-number">92%</div>
-                        <div class="community-stat-label">Engagement Rate</div>
-                    </div>
+        
+        <div class="portfolio-filter fade-in">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="ai">AI Productions</button>
+            <button class="filter-btn" data-filter="immersive">Immersive</button>
+            <button class="filter-btn" data-filter="documentary">Documentaries</button>
+            <button class="filter-btn" data-filter="series">Series</button>
+        </div>
+        
+        <div class="portfolio-grid">
+            <div class="portfolio-item fade-in" data-category="ai">
+                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="AI Generated Series">
+                <div class="portfolio-overlay">
+                    <h3>Neural Dreams</h3>
+                    <p>First fully AI-generated drama series</p>
                 </div>
-                <a href="#" class="cta-button">Join Community</a>
             </div>
-            <div class="community-image">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Community">
+            
+            <div class="portfolio-item fade-in delay-1" data-category="immersive">
+                <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2078&q=80" alt="VR Experience">
+                <div class="portfolio-overlay">
+                    <h3>Edge of Reality</h3>
+                    <p>Award-winning VR documentary</p>
+                </div>
+            </div>
+            
+            <div class="portfolio-item fade-in delay-2" data-category="series">
+                <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2059&q=80" alt="Sci-Fi Series">
+                <div class="portfolio-overlay">
+                    <h3>Quantum Echoes</h3>
+                    <p>Bestselling sci-fi series</p>
+                </div>
+            </div>
+            
+            <div class="portfolio-item fade-in delay-3" data-category="documentary">
+                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2058&q=80" alt="Documentary">
+                <div class="portfolio-overlay">
+                    <h3>The Algorithmic Mind</h3>
+                    <p>AI in modern society documentary</p>
+                </div>
+            </div>
+            
+            <div class="portfolio-item fade-in" data-category="ai">
+                <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="AI News">
+                <div class="portfolio-overlay">
+                    <h3>AI News Network</h3>
+                    <p>24/7 automated news coverage</p>
+                </div>
+            </div>
+            
+            <div class="portfolio-item fade-in delay-1" data-category="immersive">
+                <img src="https://images.unsplash.com/photo-1589254065878-42c9da997008?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="AR Experience">
+                <div class="portfolio-overlay">
+                    <h3>City of Dreams</h3>
+                    <p>Interactive AR city exploration</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="section-header">
-            <h2>Success Stories</h2>
-            <p>Hear from companies and closers who have transformed their results with our ecosystem.</p>
+    <section class="section testimonials">
+        <div class="section-title fade-in">
+            <h2>Client Testimonials</h2>
+            <p>Hear what industry leaders say about working with NexusTV.</p>
         </div>
-        <div class="testimonials-slider">
+        
+        <div class="testimonials-slider fade-in">
             <div class="testimonial-slide">
-                <div class="testimonial-quote">
-                    Since partnering with Closers.TV, our sales velocity has increased by 300%. The quality of talent and the speed of deployment is unmatched in the industry.
+                <div class="testimonial-avatar">
+                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah Johnson">
                 </div>
-                <div class="testimonial-author">
-                    <div class="author-avatar">
-                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah Johnson">
+                <p class="testimonial-quote">"Working with NexusTV transformed our content strategy. Their AI-driven insights helped us double our audience engagement in just three months."</p>
+                <h4 class="testimonial-author">Sarah Johnson</h4>
+                <p class="testimonial-role">CEO, MediaVision</p>
+            </div>
+            
+            <div class="testimonial-slide">
+                <div class="testimonial-avatar">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
+                </div>
+                <p class="testimonial-quote">"The immersive experiences NexusTV created for our brand campaign generated unprecedented viewer interaction and brand recall."</p>
+                <h4 class="testimonial-author">Michael Chen</h4>
+                <p class="testimonial-role">CMO, TechGlobal</p>
+            </div>
+            
+            <div class="testimonial-slide">
+                <div class="testimonial-avatar">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emma Rodriguez">
+                </div>
+                <p class="testimonial-quote">"NexusTV's AI production tools cut our content creation time by 60% while improving quality. A true game-changer for our network."</p>
+                <h4 class="testimonial-author">Emma Rodriguez</h4>
+                <p class="testimonial-role">Head of Production, StreamNation</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section" id="team">
+        <div class="section-title fade-in">
+            <h2>Our Team</h2>
+            <p>The brilliant minds behind our revolutionary media technology.</p>
+        </div>
+        
+        <div class="team-grid">
+            <div class="team-member fade-in">
+                <div class="member-image">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Dr. Alan Turing">
+                </div>
+                <div class="member-info">
+                    <h3>Dr. Alan Turing</h3>
+                    <p>Chief AI Scientist</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
                     </div>
-                    <div class="author-info">
-                        <h4>Sarah Johnson</h4>
-                        <p>VP Sales, TechCorp</p>
+                </div>
+            </div>
+            
+            <div class="team-member fade-in delay-1">
+                <div class="member-image">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1888&q=80" alt="Sophia Martinez">
+                </div>
+                <div class="member-info">
+                    <h3>Sophia Martinez</h3>
+                    <p>Creative Director</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member fade-in delay-2">
+                <div class="member-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="James Wilson">
+                </div>
+                <div class="member-info">
+                    <h3>James Wilson</h3>
+                    <p>Head of Technology</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-member fade-in delay-3">
+                <div class="member-image">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1888&q=80" alt="Priya Patel">
+                </div>
+                <div class="member-info">
+                    <h3>Priya Patel</h3>
+                    <p>Director of Immersive Media</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="slider-nav">
-            <div class="slider-dot active"></div>
-            <div class="slider-dot"></div>
-            <div class="slider-dot"></div>
-            <div class="slider-dot"></div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item fade-in">
+                <div class="stat-number" data-count="150">0</div>
+                <div class="stat-title">Countries Reached</div>
+            </div>
+            <div class="stat-item fade-in delay-1">
+                <div class="stat-number" data-count="500">0</div>
+                <div class="stat-title">Projects Completed</div>
+            </div>
+            <div class="stat-item fade-in delay-2">
+                <div class="stat-number" data-count="50">0</div>
+                <div class="stat-title">Industry Awards</div>
+            </div>
+            <div class="stat-item fade-in delay-3">
+                <div class="stat-number" data-count="100">0</div>
+                <div class="stat-title">Million Viewers</div>
+            </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2>Ready to Transform Your Sales?</h2>
-            <p>Whether you're looking to scale your sales team or join our elite closer community, we have the solution to accelerate your success.</p>
-            <div class="cta-buttons">
-                <a href="#" class="cta-button">Get Started</a>
-                <a href="#" class="secondary-button">Contact Us</a>
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="section-title fade-in">
+            <h2>Get In Touch</h2>
+            <p>Ready to revolutionize your media strategy? Contact us today.</p>
+        </div>
+        
+        <div class="contact-container">
+            <div class="contact-info fade-in">
+                <h3>Let's Create Something Extraordinary</h3>
+                <p>Our team is ready to discuss your project and explore how our AI-driven media solutions can take your content to the next level.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Our Headquarters</h4>
+                            <p>123 Media District, Silicon Valley, CA 94025</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>contact@nexustv.media</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="contact-form fade-in delay-1">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
             </div>
         </div>
     </section>
@@ -314,58 +1982,448 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-about">
-                <a href="#" class="footer-logo">
-                    <div class="footer-logo-icon">
-                        <i class="fas fa-tv"></i>
-                    </div>
-                    Closers<span>.TV</span>
-                </a>
-                <p>Revolutionizing sales talent acquisition, training, and deployment at scale to empower companies and accelerate revenue growth worldwide.</p>
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            <div class="footer-col">
+                <h3>NexusTV</h3>
+                <p>Pioneering the future of television with AI-driven production and immersive storytelling experiences that captivate global audiences.</p>
+                <div class="contact-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Our Ecosystem</a></li>
-                    <li><a href="#">Core Functions</a></li>
-                    <li><a href="#">Showcases</a></li>
-                    <li><a href="#">Community</a></li>
+            
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#team">Our Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
-            <div class="footer-links">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="#">Sales Academy</a></li>
-                    <li><a href="#">Training Programs</a></li>
-                    <li><a href="#">Case Studies</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Support</a></li>
+            
+            <div class="footer-col">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#">AI Video Production</a></li>
+                    <li><a href="#">Content Generation</a></li>
+                    <li><a href="#">Immersive Media</a></li>
+                    <li><a href="#">Audience Analytics</a></li>
+                    <li><a href="#">Global Distribution</a></li>
+                    <li><a href="#">Media Training</a></li>
                 </ul>
             </div>
-            <div class="footer-newsletter">
-                <h4>Stay Updated</h4>
-                <p>Subscribe to our newsletter for the latest updates, events, and sales insights.</p>
+            
+            <div class="footer-col footer-newsletter">
+                <h3>Newsletter</h3>
+                <p>Subscribe to our newsletter for the latest updates on AI media technology and industry insights.</p>
                 <form class="newsletter-form">
-                    <input type="email" class="newsletter-input" placeholder="Your Email" required>
-                    <button type="submit" class="newsletter-button">Join</button>
+                    <input type="email" placeholder="Your Email" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
                 </form>
             </div>
         </div>
+        
         <div class="footer-bottom">
-            <p>&copy; 2025 Closers.TV. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            <p>&copy; 2023 NexusTV. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Video Modal -->
+    <div class="modal" id="videoModal">
+        <div class="modal-content">
+            <div class="close-modal" id="closeModal">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="modal-video">
+                <video controls autoplay>
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-man-under-multicolored-lights-1237-large.mp4" type="video/mp4">
+                </video>
+            </div>
+            <h3>Discover NexusTV</h3>
+            <p>Watch our company overview to learn more about our revolutionary approach to media production and the cutting-edge technology that powers our content.</p>
+        </div>
+    </div>
+
+    <!-- Particles Background -->
+    <div class="particles" id="particles-js"></div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show loader initially
+            document.querySelector('.loader').classList.remove('hidden');
+            
+            // Hide loader after 2 seconds (simulating content load)
+            setTimeout(function() {
+                document.querySelector('.loader').classList.add('hidden');
+            }, 2000);
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const nav = document.getElementById('nav');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                mobileMenuBtn.innerHTML = nav.classList.contains('active') ? 
+                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Close mobile menu when clicking a link
+            const navLinks = document.querySelectorAll('nav ul li a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        nav.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                });
+            });
+            
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Back to top button
+            const backToTopBtn = document.getElementById('backToTop');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('active');
+                } else {
+                    backToTopBtn.classList.remove('active');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Video modal
+            const aboutVideoBtn = document.getElementById('aboutVideoBtn');
+            const videoModal = document.getElementById('videoModal');
+            const closeModal = document.getElementById('closeModal');
+            
+            aboutVideoBtn.addEventListener('click', function() {
+                videoModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            closeModal.addEventListener('click', function() {
+                videoModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                const video = videoModal.querySelector('video');
+                video.pause();
+                video.currentTime = 0;
+            });
+            
+            // Close modal when clicking outside
+            videoModal.addEventListener('click', function(e) {
+                if (e.target === videoModal) {
+                    videoModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                    const video = videoModal.querySelector('video');
+                    video.pause();
+                    video.currentTime = 0;
+                }
+            });
+            
+            // Testimonials slider
+            $('.testimonials-slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                adaptiveHeight: true,
+                prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+                nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false
+                        }
+                    }
+                ]
+            });
+            
+            // Portfolio filter
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    portfolioItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Animate stats counting
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            function animateStats() {
+                statNumbers.forEach(stat => {
+                    const target = parseInt(stat.getAttribute('data-count'));
+                    const duration = 2000; // Animation duration in ms
+                    const step = target / (duration / 16); // 60fps
+                    let current = 0;
+                    
+                    const counter = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            clearInterval(counter);
+                            current = target;
+                        }
+                        stat.textContent = Math.floor(current);
+                    }, 16);
+                });
+            }
+            
+            // Initialize stats animation when scrolled to
+            const statsSection = document.querySelector('.stats');
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateStats();
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            statsObserver.observe(statsSection);
+            
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                // Here you would typically send the form data to a server
+                // For demo purposes, we'll just show an alert
+                alert(`Thank you, ${name}! Your message has been sent. We'll contact you soon at ${email}.`);
+                
+                // Reset form
+                contactForm.reset();
+            });
+            
+            // Newsletter form
+            const newsletterForm = document.querySelector('.newsletter-form');
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const email = this.querySelector('input[type="email"]').value;
+                
+                // Here you would typically send the email to your newsletter service
+                // For demo purposes, we'll just show an alert
+                alert(`Thank you for subscribing with ${email}! You'll receive our newsletter soon.`);
+                
+                // Reset form
+                this.reset();
+            });
+            
+            // Initialize particles.js
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#00f0ff"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.3,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#00f0ff",
+                        "opacity": 0.2,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+            
+            // Animate elements on scroll
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(element => {
+                fadeObserver.observe(element);
+            });
+            
+            // Add floating elements dynamically
+            const floatingContainer = document.querySelector('.floating-elements');
+            for (let i = 0; i < 5; i++) {
+                const element = document.createElement('div');
+                element.classList.add('floating-element');
+                
+                const size = Math.random() * 100 + 50;
+                const posX = Math.random() * 80 + 10;
+                const posY = Math.random() * 80 + 10;
+                const duration = Math.random() * 10 + 10;
+                const delay = Math.random() * 5;
+                
+                element.style.width = `${size}px`;
+                element.style.height = `${size}px`;
+                element.style.top = `${posY}%`;
+                element.style.left = `${posX}%`;
+                element.style.animationDuration = `${duration}s`;
+                element.style.animationDelay = `${delay}s`;
+                
+                const color = Math.random() > 0.5 ? 'rgba(0, 240, 255, 0.1)' : 'rgba(255, 0, 230, 0.1)';
+                element.style.background = color;
+                
+                floatingContainer.appendChild(element);
+            }
+        });
+    </script>
 </body>
 </html>
